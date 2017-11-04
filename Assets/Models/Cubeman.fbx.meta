@@ -1,0 +1,578 @@
+fileFormatVersion: 2
+guid: 692af2a7c6a3c40dd92bde7922a7d857
+timeCreated: 1509830024
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Bip001
+    100002: Bip001 1
+    100004: Bip001 2
+    100006: Bip001 Footsteps
+    100008: Bip001 Footsteps 1
+    100010: Bip001 Footsteps 2
+    100012: Bip001 Head
+    100014: Bip001 Head 1
+    100016: Bip001 Head 2
+    100018: Bip001 HeadNub
+    100020: Bip001 HeadNub 1
+    100022: Bip001 HeadNub 2
+    100024: Bip001 L Calf
+    100026: Bip001 L Calf 1
+    100028: Bip001 L Calf 2
+    100030: Bip001 L Clavicle
+    100032: Bip001 L Clavicle 1
+    100034: Bip001 L Clavicle 2
+    100036: Bip001 L Finger0
+    100038: Bip001 L Finger0 1
+    100040: Bip001 L Finger0 2
+    100042: Bip001 L Finger0Nub
+    100044: Bip001 L Finger0Nub 1
+    100046: Bip001 L Finger0Nub 2
+    100048: Bip001 L Foot
+    100050: Bip001 L Foot 1
+    100052: Bip001 L Foot 2
+    100054: Bip001 L Forearm
+    100056: Bip001 L Forearm 1
+    100058: Bip001 L Forearm 2
+    100060: Bip001 L Hand
+    100062: Bip001 L Hand 1
+    100064: Bip001 L Hand 2
+    100066: Bip001 L Thigh
+    100068: Bip001 L Thigh 1
+    100070: Bip001 L Thigh 2
+    100072: Bip001 L Toe0
+    100074: Bip001 L Toe0 1
+    100076: Bip001 L Toe0 2
+    100078: Bip001 L Toe01
+    100080: Bip001 L Toe01 1
+    100082: Bip001 L Toe01 2
+    100084: Bip001 L Toe02
+    100086: Bip001 L Toe02 1
+    100088: Bip001 L Toe02 2
+    100090: Bip001 L Toe0Nub
+    100092: Bip001 L Toe0Nub 1
+    100094: Bip001 L Toe0Nub 2
+    100096: Bip001 L UpperArm
+    100098: Bip001 L UpperArm 1
+    100100: Bip001 L UpperArm 2
+    100102: Bip001 Neck
+    100104: Bip001 Neck 1
+    100106: Bip001 Neck 2
+    100108: Bip001 Pelvis
+    100110: Bip001 Pelvis 1
+    100112: Bip001 Pelvis 2
+    100114: Bip001 R Calf
+    100116: Bip001 R Calf 1
+    100118: Bip001 R Calf 2
+    100120: Bip001 R Clavicle
+    100122: Bip001 R Clavicle 1
+    100124: Bip001 R Clavicle 2
+    100126: Bip001 R Finger0
+    100128: Bip001 R Finger0 1
+    100130: Bip001 R Finger0 2
+    100132: Bip001 R Finger0Nub
+    100134: Bip001 R Finger0Nub 1
+    100136: Bip001 R Finger0Nub 2
+    100138: Bip001 R Foot
+    100140: Bip001 R Foot 1
+    100142: Bip001 R Foot 2
+    100144: Bip001 R Forearm
+    100146: Bip001 R Forearm 1
+    100148: Bip001 R Forearm 2
+    100150: Bip001 R Hand
+    100152: Bip001 R Hand 1
+    100154: Bip001 R Hand 2
+    100156: Bip001 R Thigh
+    100158: Bip001 R Thigh 1
+    100160: Bip001 R Thigh 2
+    100162: Bip001 R Toe0
+    100164: Bip001 R Toe0 1
+    100166: Bip001 R Toe0 2
+    100168: Bip001 R Toe01
+    100170: Bip001 R Toe01 1
+    100172: Bip001 R Toe01 2
+    100174: Bip001 R Toe02
+    100176: Bip001 R Toe02 1
+    100178: Bip001 R Toe02 2
+    100180: Bip001 R Toe0Nub
+    100182: Bip001 R Toe0Nub 1
+    100184: Bip001 R Toe0Nub 2
+    100186: Bip001 R UpperArm
+    100188: Bip001 R UpperArm 1
+    100190: Bip001 R UpperArm 2
+    100192: Bip001 Spine
+    100194: Bip001 Spine 1
+    100196: Bip001 Spine 2
+    100198: Bip001 Spine1
+    100200: Bip001 Spine1 1
+    100202: Bip001 Spine1 2
+    100204: Box001
+    100206: Box001 1
+    100208: Box001 2
+    100210: Box002
+    100212: Box002 1
+    100214: Box002 2
+    100216: Box003
+    100218: Box003 1
+    100220: Box003 2
+    100222: Box004
+    100224: Box004 1
+    100226: Box004 2
+    100228: Box005
+    100230: Box005 1
+    100232: Box005 2
+    100234: Box006
+    100236: Box006 1
+    100238: Box006 2
+    100240: Box007
+    100242: Box007 1
+    100244: Box007 2
+    100246: Box008
+    100248: Box008 1
+    100250: Box008 2
+    100252: Box009
+    100254: Box009 1
+    100256: Box009 2
+    100258: Box010
+    100260: Box010 1
+    100262: Box010 2
+    100264: Box011
+    100266: Box011 1
+    100268: Box011 2
+    100270: Box012
+    100272: Box012 1
+    100274: Box012 2
+    100276: Box013
+    100278: Box013 1
+    100280: Box013 2
+    100282: Box014
+    100284: Box014 1
+    100286: Box014 2
+    100288: Box015
+    100290: Box015 1
+    100292: Box015 2
+    100294: Box016
+    100296: Box016 1
+    100298: Box016 2
+    100300: Box017
+    100302: Box018
+    100304: //RootNode
+    100306: Cylinder001
+    100308: Cylinder002
+    100310: Plane001
+    400000: Bip001
+    400002: Bip001 1
+    400004: Bip001 2
+    400006: Bip001 Footsteps
+    400008: Bip001 Footsteps 1
+    400010: Bip001 Footsteps 2
+    400012: Bip001 Head
+    400014: Bip001 Head 1
+    400016: Bip001 Head 2
+    400018: Bip001 HeadNub
+    400020: Bip001 HeadNub 1
+    400022: Bip001 HeadNub 2
+    400024: Bip001 L Calf
+    400026: Bip001 L Calf 1
+    400028: Bip001 L Calf 2
+    400030: Bip001 L Clavicle
+    400032: Bip001 L Clavicle 1
+    400034: Bip001 L Clavicle 2
+    400036: Bip001 L Finger0
+    400038: Bip001 L Finger0 1
+    400040: Bip001 L Finger0 2
+    400042: Bip001 L Finger0Nub
+    400044: Bip001 L Finger0Nub 1
+    400046: Bip001 L Finger0Nub 2
+    400048: Bip001 L Foot
+    400050: Bip001 L Foot 1
+    400052: Bip001 L Foot 2
+    400054: Bip001 L Forearm
+    400056: Bip001 L Forearm 1
+    400058: Bip001 L Forearm 2
+    400060: Bip001 L Hand
+    400062: Bip001 L Hand 1
+    400064: Bip001 L Hand 2
+    400066: Bip001 L Thigh
+    400068: Bip001 L Thigh 1
+    400070: Bip001 L Thigh 2
+    400072: Bip001 L Toe0
+    400074: Bip001 L Toe0 1
+    400076: Bip001 L Toe0 2
+    400078: Bip001 L Toe01
+    400080: Bip001 L Toe01 1
+    400082: Bip001 L Toe01 2
+    400084: Bip001 L Toe02
+    400086: Bip001 L Toe02 1
+    400088: Bip001 L Toe02 2
+    400090: Bip001 L Toe0Nub
+    400092: Bip001 L Toe0Nub 1
+    400094: Bip001 L Toe0Nub 2
+    400096: Bip001 L UpperArm
+    400098: Bip001 L UpperArm 1
+    400100: Bip001 L UpperArm 2
+    400102: Bip001 Neck
+    400104: Bip001 Neck 1
+    400106: Bip001 Neck 2
+    400108: Bip001 Pelvis
+    400110: Bip001 Pelvis 1
+    400112: Bip001 Pelvis 2
+    400114: Bip001 R Calf
+    400116: Bip001 R Calf 1
+    400118: Bip001 R Calf 2
+    400120: Bip001 R Clavicle
+    400122: Bip001 R Clavicle 1
+    400124: Bip001 R Clavicle 2
+    400126: Bip001 R Finger0
+    400128: Bip001 R Finger0 1
+    400130: Bip001 R Finger0 2
+    400132: Bip001 R Finger0Nub
+    400134: Bip001 R Finger0Nub 1
+    400136: Bip001 R Finger0Nub 2
+    400138: Bip001 R Foot
+    400140: Bip001 R Foot 1
+    400142: Bip001 R Foot 2
+    400144: Bip001 R Forearm
+    400146: Bip001 R Forearm 1
+    400148: Bip001 R Forearm 2
+    400150: Bip001 R Hand
+    400152: Bip001 R Hand 1
+    400154: Bip001 R Hand 2
+    400156: Bip001 R Thigh
+    400158: Bip001 R Thigh 1
+    400160: Bip001 R Thigh 2
+    400162: Bip001 R Toe0
+    400164: Bip001 R Toe0 1
+    400166: Bip001 R Toe0 2
+    400168: Bip001 R Toe01
+    400170: Bip001 R Toe01 1
+    400172: Bip001 R Toe01 2
+    400174: Bip001 R Toe02
+    400176: Bip001 R Toe02 1
+    400178: Bip001 R Toe02 2
+    400180: Bip001 R Toe0Nub
+    400182: Bip001 R Toe0Nub 1
+    400184: Bip001 R Toe0Nub 2
+    400186: Bip001 R UpperArm
+    400188: Bip001 R UpperArm 1
+    400190: Bip001 R UpperArm 2
+    400192: Bip001 Spine
+    400194: Bip001 Spine 1
+    400196: Bip001 Spine 2
+    400198: Bip001 Spine1
+    400200: Bip001 Spine1 1
+    400202: Bip001 Spine1 2
+    400204: Box001
+    400206: Box001 1
+    400208: Box001 2
+    400210: Box002
+    400212: Box002 1
+    400214: Box002 2
+    400216: Box003
+    400218: Box003 1
+    400220: Box003 2
+    400222: Box004
+    400224: Box004 1
+    400226: Box004 2
+    400228: Box005
+    400230: Box005 1
+    400232: Box005 2
+    400234: Box006
+    400236: Box006 1
+    400238: Box006 2
+    400240: Box007
+    400242: Box007 1
+    400244: Box007 2
+    400246: Box008
+    400248: Box008 1
+    400250: Box008 2
+    400252: Box009
+    400254: Box009 1
+    400256: Box009 2
+    400258: Box010
+    400260: Box010 1
+    400262: Box010 2
+    400264: Box011
+    400266: Box011 1
+    400268: Box011 2
+    400270: Box012
+    400272: Box012 1
+    400274: Box012 2
+    400276: Box013
+    400278: Box013 1
+    400280: Box013 2
+    400282: Box014
+    400284: Box014 1
+    400286: Box014 2
+    400288: Box015
+    400290: Box015 1
+    400292: Box015 2
+    400294: Box016
+    400296: Box016 1
+    400298: Box016 2
+    400300: Box017
+    400302: Box018
+    400304: //RootNode
+    400306: Cylinder001
+    400308: Cylinder002
+    400310: Plane001
+    2300000: Box001
+    2300002: Box001 1
+    2300004: Box001 2
+    2300006: Box002
+    2300008: Box002 1
+    2300010: Box002 2
+    2300012: Box003
+    2300014: Box003 1
+    2300016: Box003 2
+    2300018: Box004
+    2300020: Box004 1
+    2300022: Box004 2
+    2300024: Box005
+    2300026: Box005 1
+    2300028: Box005 2
+    2300030: Box006
+    2300032: Box006 1
+    2300034: Box006 2
+    2300036: Box007
+    2300038: Box007 1
+    2300040: Box007 2
+    2300042: Box008
+    2300044: Box008 1
+    2300046: Box008 2
+    2300048: Box009
+    2300050: Box009 1
+    2300052: Box009 2
+    2300054: Box010
+    2300056: Box010 1
+    2300058: Box010 2
+    2300060: Box011
+    2300062: Box011 1
+    2300064: Box011 2
+    2300066: Box012
+    2300068: Box012 1
+    2300070: Box012 2
+    2300072: Box013
+    2300074: Box013 1
+    2300076: Box013 2
+    2300078: Box014
+    2300080: Box014 1
+    2300082: Box014 2
+    2300084: Box015
+    2300086: Box015 1
+    2300088: Box015 2
+    2300090: Box016
+    2300092: Box016 1
+    2300094: Box016 2
+    2300096: Box017
+    2300098: Box018
+    2300100: Cylinder001
+    2300102: Cylinder002
+    2300104: Plane001
+    3300000: Box001
+    3300002: Box001 1
+    3300004: Box001 2
+    3300006: Box002
+    3300008: Box002 1
+    3300010: Box002 2
+    3300012: Box003
+    3300014: Box003 1
+    3300016: Box003 2
+    3300018: Box004
+    3300020: Box004 1
+    3300022: Box004 2
+    3300024: Box005
+    3300026: Box005 1
+    3300028: Box005 2
+    3300030: Box006
+    3300032: Box006 1
+    3300034: Box006 2
+    3300036: Box007
+    3300038: Box007 1
+    3300040: Box007 2
+    3300042: Box008
+    3300044: Box008 1
+    3300046: Box008 2
+    3300048: Box009
+    3300050: Box009 1
+    3300052: Box009 2
+    3300054: Box010
+    3300056: Box010 1
+    3300058: Box010 2
+    3300060: Box011
+    3300062: Box011 1
+    3300064: Box011 2
+    3300066: Box012
+    3300068: Box012 1
+    3300070: Box012 2
+    3300072: Box013
+    3300074: Box013 1
+    3300076: Box013 2
+    3300078: Box014
+    3300080: Box014 1
+    3300082: Box014 2
+    3300084: Box015
+    3300086: Box015 1
+    3300088: Box015 2
+    3300090: Box016
+    3300092: Box016 1
+    3300094: Box016 2
+    3300096: Box017
+    3300098: Box018
+    3300100: Cylinder001
+    3300102: Cylinder002
+    3300104: Plane001
+    4300000: Box016
+    4300002: Box009
+    4300004: Box008
+    4300006: Box007
+    4300008: Box010
+    4300010: Box011
+    4300012: Box012
+    4300014: Box001
+    4300016: Box006
+    4300018: Box005
+    4300020: Box004
+    4300022: Box015
+    4300024: Box014
+    4300026: Box013
+    4300028: Box002
+    4300030: Box003
+    4300032: Box016
+    4300034: Box009
+    4300036: Box008
+    4300038: Box007
+    4300040: Box010
+    4300042: Box011
+    4300044: Box012
+    4300046: Box001
+    4300048: Box006
+    4300050: Box005
+    4300052: Box004
+    4300054: Box015
+    4300056: Box014
+    4300058: Box013
+    4300060: Box002
+    4300062: Box003
+    4300064: Box016
+    4300066: Box009
+    4300068: Box008
+    4300070: Box007
+    4300072: Box010
+    4300074: Box011
+    4300076: Box012
+    4300078: Box001
+    4300080: Box006
+    4300082: Box005
+    4300084: Box004
+    4300086: Box015
+    4300088: Box014
+    4300090: Box013
+    4300092: Box002
+    4300094: Box003
+    4300096: Cylinder001
+    4300098: Cylinder002
+    4300100: Box017
+    4300102: Box018
+    4300104: Plane001
+    7400000: Take 001
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #14'
+    second: {fileID: 2100000, guid: 8238f7cb4a96149cea39a22b316285a1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: a146ab6b946ab4f78910265263151a7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: boneco
+    second: {fileID: 2100000, guid: 5b67acb46d2fc42778249d329ac3762d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: solo
+    second: {fileID: 2100000, guid: 3d0c69fb174b64da1849b3a8f8c51770, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
