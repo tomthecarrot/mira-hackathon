@@ -4,7 +4,7 @@ using UnityEngine;
 /// Controller input manager.
 /// Mira Prism Hackathon 2017
 /// </summary>
-public class Laser : MonoBehaviour {
+public class ControllerManager : MonoBehaviour {
 
     // Variables to limit input calls from controller
     private bool clickHeld = false;
