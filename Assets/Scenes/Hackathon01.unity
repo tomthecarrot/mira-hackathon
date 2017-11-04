@@ -487,6 +487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 804a094e1c6e24464b36aa524172de49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flyer: {fileID: 127743311}
 --- !u!1 &1521753575
 GameObject:
   m_ObjectHideFlags: 0

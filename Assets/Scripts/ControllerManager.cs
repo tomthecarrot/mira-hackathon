@@ -5,6 +5,9 @@ using UnityEngine;
 /// Mira Prism Hackathon 2017
 /// </summary>
 public class ControllerManager : MonoBehaviour {
+    
+    // Object references
+    public Flyer flyer;
 
     // Variables to limit input calls from controller
     private bool clickHeld = false;
@@ -62,14 +65,22 @@ public class ControllerManager : MonoBehaviour {
     /// Called when the controller's Touchpad has been pressed or held down.
     /// </summary>
     private void TouchpadPressed() {
+        // Log to console
         Debug.Log("TOUCH PAD PRESSED!");
+
+        // Reset Flyer position
+        flyer.resetFlyer();
     }
 
     /// <summary>
     /// Called when the controller's Trigger has been pressed or held down.
     /// </summary>
     private void TriggerPressed() {
+        // Log to console
         Debug.Log("TRIGGER PRESSED!");
+
+        // Fire a Flyer projectile
+        flyer.fireProjectile();
     }
 
 }
