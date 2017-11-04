@@ -6,5 +6,5 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scene.unity
-    guid: b6d5472461bfc451ca822bc888d65694
+    path: Assets/Scenes/Hackathon01.unity
+    guid: b412cd90d1537ae41b6a7693dfae5dd3
