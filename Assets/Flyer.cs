@@ -43,10 +43,7 @@ public class Flyer : MonoBehaviour {
         }
 
         // Orientation
-        if ()
-        {
-
-        }
+      
     }
 
     public void fireProjectile()
