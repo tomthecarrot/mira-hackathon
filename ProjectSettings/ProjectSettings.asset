@@ -278,7 +278,7 @@ PlayerSettings:
   enableInternalProfiler: 0
   logObjCUncaughtExceptions: 1
   enableCrashReportAPI: 0
-  cameraUsageDescription: 
+  cameraUsageDescription: Augmenting your world!
   locationUsageDescription: 
   microphoneUsageDescription: 
   switchNetLibKey: 
