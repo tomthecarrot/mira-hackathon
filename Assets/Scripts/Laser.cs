@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>
-/// Laser beam + input controller
+/// Controller input manager.
 /// Mira Prism Hackathon 2017
 /// </summary>
 public class Laser : MonoBehaviour {
@@ -10,16 +10,24 @@ public class Laser : MonoBehaviour {
     private bool clickHeld = false;
     private bool triggerHeld = false;
 
-    // standard initializer
+    /// <summary>
+    /// Standard monobehaviour initializer.
+    /// </summary>
     void Start() {
-
+        
     }
 
+    /// <summary>
+    /// Called every frame.
+    /// </summary>
     void Update() {
         // Process any current inputs from the controller
         ProcessControllerInputs();
     }
 
+    /// <summary>
+    /// Processes any current inputs from the controller.
+    /// </summary>
     private void ProcessControllerInputs() {
         if (MiraController.ClickButtonPressed) {
             // Prevent extraneous input calls
@@ -50,10 +58,16 @@ public class Laser : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Called when the controller's Touchpad has been pressed or held down.
+    /// </summary>
     private void TouchpadPressed() {
         Debug.Log("TOUCH PAD PRESSED!");
     }
 
+    /// <summary>
+    /// Called when the controller's Trigger has been pressed or held down.
+    /// </summary>
     private void TriggerPressed() {
         Debug.Log("TRIGGER PRESSED!");
     }
