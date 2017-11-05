@@ -53,16 +53,15 @@ public class Flyer : MonoBehaviour {
     /// <summary>
     /// Applies force to fire the projetile.
     /// </summary>
-    /// <param name="pFireVector">The vector describing the direction and intensity of the fire force.</param>
-    public void fireProjectile( Vector3 pFireVector )
+    /// <param name="pFireVector">The scalar (float) of the fire force.</param>
+    public void fireProjectile( float pFirePower )
     {
-        Debug.LogFormat( "Fire!, {0}, {1}, {2}", pFireVector.x, pFireVector.y, pFireVector.z );
+        Debug.LogFormat( "Fire! power:, {0}", pFirePower );
 
         // Enable the projectile
         gameObject.SetActive(true);
-        
-        // Apply the force
-        _rb.AddForce( pFireVector, ForceMode.Impulse );
+
+        _rb.AddForce( transform.up * pFirePower, ForceMode.Impulse);
     }
 
     /// <summary>
@@ -70,7 +69,7 @@ public class Flyer : MonoBehaviour {
     /// to the original transform.
     /// </summary>
     public void resetFlyer() {
-        resetFlyer(_originalTransform);
+        resetFlyer(_originalPosition, _originalRotation);
     }
 
     /// <summary>
@@ -78,14 +77,14 @@ public class Flyer : MonoBehaviour {
     /// to the given transform.
     /// </summary>
     /// <param name="pTransform">New transform for the projectile gameobject.</param>
-    public void resetFlyer( Transform pTransform )
+    public void resetFlyer( Vector3 pPosition, Quaternion pRotation )
     {
         // position reset
         // transform.position = _originalPosition;
         // transform.rotation = _originalRotation;
 
-        transform.position = pTransform.position;
-        transform.rotation = pTransform.rotation;
+        transform.position = pPosition;
+        transform.localRotation = pRotation;
 
         // gameObject.SetActive(false);
     }

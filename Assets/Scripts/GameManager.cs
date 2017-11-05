@@ -13,7 +13,9 @@ public class GameManager : MonoBehaviour {
     public float cannonPitch;
     public float cannonPitchMin = 0;
     public float cannonPitchMax = 180;
+    public float muzzleOffset;
     public float powerCharge = 1;
+
 
     private Quaternion _cannonRotationOriginal;
     private float _cannonPitch = 0;
@@ -75,7 +77,8 @@ public class GameManager : MonoBehaviour {
     public void resetLaunchpad()
     {
         // reset flyer to the cannon location and make transparent
-        flyer.GetComponent<Flyer>().resetFlyer( cannon.transform );
+        // TODO: rotate so flyer flies towards head
+        // flyer.GetComponent<Flyer>().resetFlyer( cannon.transform.position, cannon.transform.rotation );
         
         // firepower reset
         resetPower();
@@ -107,11 +110,18 @@ public class GameManager : MonoBehaviour {
     /// </summary>
     public void fire()
     {
-        Debug.Log("fire");
+        // Debug.Log("fire");
         // rotate the flyer -90 so it flies head first
         // Vector3 tFireVector = new Vector3(_cannonPitch - 90f, 0, 0) * _powerCharge;
-        Vector3 tFireVector = cannon.transform.rotation.ToEuler() * powerCharge * firePowerMultiplier;
 
-        flyer.GetComponent<Flyer>().fireProjectile(tFireVector);
+        Quaternion tAdjustedRotation = cannon.transform.localRotation;
+        tAdjustedRotation = tAdjustedRotation * Quaternion.Euler(0, 180, 0);
+        tAdjustedRotation = tAdjustedRotation * Quaternion.Euler(90, 0, 0);
+        flyer.GetComponent<Flyer>().resetFlyer(cannon.transform.position, tAdjustedRotation );
+
+        // Vector3 tFireVector = cannon.transform.rotation.ToEuler();
+
+        float tFirePower = powerCharge * firePowerMultiplier;
+        flyer.GetComponent<Flyer>().fireProjectile(tFirePower);
     }
 }
