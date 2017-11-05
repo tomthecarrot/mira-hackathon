@@ -6,7 +6,7 @@ using UnityEngine;
 public class Target : MonoBehaviour {
 
     public Action<Collision> onCollisionEnter;
- 
+   
     public void OnCollisionEnter(Collision collision)
     {
         onCollisionEnter(collision);
