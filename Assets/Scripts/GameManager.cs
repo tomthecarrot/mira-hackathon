@@ -42,12 +42,6 @@ public class GameManager : MonoBehaviour {
 
         cannon.transform.rotation = Quaternion.Euler(cannonPitch, 180f, 0);
 
-        // FirePower
-        if (Input.GetKeyDown("space"))
-        {
-           resetLaunchpad();
-        }
-
         if (Input.GetKey("space") || ControllerManager.Instance.triggerHeld)
         {
             increaseFirePower();
