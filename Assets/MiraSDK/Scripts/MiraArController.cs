@@ -110,6 +110,9 @@ namespace Mira
 
         public void Awake()
         {
+			if (PhotonNetwork.room.PlayerCount > 1) {
+				isSpectator = true;
+			}
             cameraRig = gameObject;
             scaleMultiplier = setScaleMultiplier;
             Instance.InitializeARController();
@@ -143,9 +146,6 @@ namespace Mira
         {
             mv = new MiraViewer(stereoCamFov);
             mv.Create();
-			if (PhotonNetwork.room.PlayerCount > 1) {
-				isSpectator = true;
-			}
             if (isSpectator)
             {
                 CreateSpecCamRig();
