@@ -16,7 +16,7 @@ public class FloorController : MonoBehaviour {
 
 	public void OnCollisionEnter(Collision collision)
 	{
-			if (collision.collider.tag == "Player")
+			if (collision.collider.tag == "Player" && collision.relativeVelocity != Vector3.zero)
 			{
 				AudioSource thudSound = GetComponent<AudioSource>();
 				thudSound.Play();
