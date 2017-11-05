@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour {
         if (Input.GetKeyUp("space"))
         {
             fire();
+            playExplosion();
         }
     }
 
@@ -118,5 +119,11 @@ public class GameManager : MonoBehaviour {
 
         float tFirePower = powerCharge * firePowerMultiplier;
         flyer.GetComponent<Flyer>().fireProjectile(tFirePower);
+    }
+
+    public void playExplosion()
+    {
+        AudioSource explosionSound = cannon.GetComponent<AudioSource>();
+        explosionSound.Play();
     }
 }
