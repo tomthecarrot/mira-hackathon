@@ -8,9 +8,6 @@ public class ControllerManager : MonoBehaviour {
     
     public static ControllerManager Instance;
 
-    // Object references
-    public Flyer flyer;
-
     // Variables to limit input calls from controller
     public bool clickHeld = false;
     public bool triggerHeld = false;
@@ -115,7 +112,6 @@ public class ControllerManager : MonoBehaviour {
 
         // Fire the Flyer projectile
         GameManager.Instance.fire();
-        //flyer.fireProjectile(10);
     }
 
 }
