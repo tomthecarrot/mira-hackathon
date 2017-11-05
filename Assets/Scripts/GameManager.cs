@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement; 
 
+/// <summary>
+/// Game logic manager.
+/// Mira Prism Hackathon 2017
+/// </summary>
 public class GameManager : MonoBehaviour {
     public static GameManager Instance;
     public GameObject cannon;
@@ -139,11 +143,17 @@ public class GameManager : MonoBehaviour {
         firePowerIndicator.SetActive( false );
     }
 
+    /// <summary>
+    /// Plays the fusing/charging sound
+    /// </summary>
     public void playFuseSound()
     {
         playGameObjectSound(cannon, "Charging");
     }
 
+    /// <summary>
+    /// Plays each fire sound
+    /// </summary>
     public void playFireSounds()
     {
         playGameObjectSound(cannon, "Explosion");
@@ -151,6 +161,11 @@ public class GameManager : MonoBehaviour {
         stopGameObjectSound(cannon, "Charging");
     }
 
+    /// <summary>
+    /// Plays the sound associated with a game object.
+    /// </summary>
+    /// <param name="gameObj">The game object from which to get the sound.</param>
+    /// <param name="soundName">The name of the sound to play.</param>
     public void playGameObjectSound(GameObject gameObj, string soundName)
     {
         AudioSource[] sounds = gameObj.transform.GetComponentsInChildren<AudioSource>();
@@ -163,6 +178,11 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Stops playing the sound associated with a game object.
+    /// </summary>
+    /// <param name="gameObj">The game object from which the sound is playing.</param>
+    /// <param name="soundName">The name of the sound to stop.</param>
     public void stopGameObjectSound(GameObject gameObj, string soundName)
     {
         AudioSource[] sounds = gameObj.transform.GetComponentsInChildren<AudioSource>();

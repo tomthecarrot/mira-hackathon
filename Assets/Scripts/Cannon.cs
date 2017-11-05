@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Cannon logic.
+/// Mira Prism Hackathon 2017
+/// </summary>
 public class Cannon : MonoBehaviour {
     public GameObject cannonBody;    
     public GameObject firepowerIndicator;

@@ -39,6 +39,9 @@ public class ControllerManager : MonoBehaviour {
         ProcessButtons();
     }
 
+    /// <summary>
+    /// Processes real-time gyroscope data from the controller.
+    /// </summary>
     private void ProcessGyro() {
         // Get the vector of the current controller orientation
         Vector3 angles = MiraController.Orientation.eulerAngles;
@@ -115,6 +118,9 @@ public class ControllerManager : MonoBehaviour {
         // see GameManager.cs:L48
     }
 
+    /// <summary>
+    /// Called when the controller's Trigger has been released, after being pressed.
+    /// </summary>
     private void TriggerReleased() {
         // Log to console
         Debug.Log("TRIGGER RELEASED!");

@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Moving floor controller behaviour.
+/// Mira Prism Hackathon 2017
+/// </summary>
 public class FloorController : MonoBehaviour {
 
     public float oscillationDistance;

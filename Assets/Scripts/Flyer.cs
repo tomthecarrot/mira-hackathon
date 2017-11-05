@@ -68,6 +68,7 @@ public class Flyer : MonoBehaviour {
         // Enable the projectile
         gameObject.SetActive(true);
         
+        // Add force and torque to the flyer's rigidbody
         _rb.AddForce( transform.up * pFirePower, ForceMode.Impulse);
         _rb.AddRelativeTorque( new Vector3( Random.Range( -torque, torque ), Random.Range(-torque, torque ), Random.Range(-torque, torque ) ), ForceMode.Impulse );
     }
@@ -87,9 +88,11 @@ public class Flyer : MonoBehaviour {
     /// <param name="pTransform">New transform for the projectile gameobject.</param>
     public void resetFlyer( Vector3 pPosition, Quaternion pRotation )
     {
+        // Set the new object transform
         transform.position = pPosition;
         transform.localRotation = pRotation;
 
+        // Set the rigidbody's velocity
         _rb.velocity = Vector3.zero;
         _rb.angularVelocity = Vector3.zero;
     }
