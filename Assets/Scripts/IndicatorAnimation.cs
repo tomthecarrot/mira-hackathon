@@ -5,6 +5,6 @@ using UnityEngine;
 public class IndicatorAnimation : MonoBehaviour
 {
 	void Update () {
-        transform.localRotation = transform.localRotation * Quaternion.Euler( 0, 3f, 0 );
+        transform.localRotation = transform.localRotation * Quaternion.Euler( 0, -3f, 0 );
 	}
 }

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
     public GameObject cannon;
     public GameObject flyer;
     public GameObject target;
+    public GameObject firePowerIndicator;
     public float firePowerReset = 0.5f;
     public float firePowerMax = 3;
     public float firePowerMultiplier = 1;
@@ -29,12 +30,14 @@ public class GameManager : MonoBehaviour {
         _cannonRotationOriginal = cannon.transform.rotation;
 
         target.GetComponent<Target>().onCollisionEnter += targetCollision;
+
+        firePowerIndicator.SetActive(false);
     }
-	
-	/// <summary>
-	/// Called once per frame.
-	/// </summary>
-	void Update () {
+
+    /// <summary>
+    /// Called once per frame.
+    /// </summary>
+    void Update () {
         #if UNITY_EDITOR
             _cannonPitch += Input.GetAxis("Vertical");
             setCannonPitch(_cannonPitch);
@@ -87,6 +90,9 @@ public class GameManager : MonoBehaviour {
         // firepower reset
         resetPower();
 
+        // show fire indicator
+        firePowerIndicator.SetActive(true);
+
         // cannon reset
         cannon.GetComponent<Cannon>().resetFirepowerIndicator();
     }
@@ -110,7 +116,6 @@ public class GameManager : MonoBehaviour {
 
     /// <summary>
     /// Fires the projectile (Flyer).
-    /// TODO: add particles
     /// </summary>
     public void fire()
     {
@@ -121,11 +126,15 @@ public class GameManager : MonoBehaviour {
 
         float tFirePower = powerCharge * firePowerMultiplier;
         flyer.GetComponent<Flyer>().fireProjectile(tFirePower);
+
+        // hide fire indicator
+        firePowerIndicator.SetActive( false );
     }
 
     public void targetCollision( Collision pCollision )
     {
         Debug.LogFormat("target collision: {0}", pCollision.other.name );
+
         if( pCollision.other.tag == "Player")
         {
             Debug.Log("Success!");
