@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour {
     /// Standard monobehaviour initializer.
     /// </summary>
     void Start () {
-        Instance = this;
+        GameManager.Instance = this;
         _cannonRotationOriginal = cannon.transform.rotation;
 
         target.GetComponent<Target>().onCollisionEnter += targetCollision;
@@ -35,8 +35,10 @@ public class GameManager : MonoBehaviour {
 	/// Called once per frame.
 	/// </summary>
 	void Update () {
-        _cannonPitch += Input.GetAxis("Vertical");
-        setCannonPitch(_cannonPitch);
+        #if UNITY_EDITOR
+            _cannonPitch += Input.GetAxis("Vertical");
+            setCannonPitch(_cannonPitch);
+        #endif
 
         cannon.transform.rotation = Quaternion.Euler(cannonPitch, 180f, 0);
 
@@ -46,7 +48,7 @@ public class GameManager : MonoBehaviour {
            resetLaunchpad();
         }
 
-        if (Input.GetKey("space"))
+        if (Input.GetKey("space") || ControllerManager.Instance.triggerHeld)
         {
             increaseFirePower();
 
