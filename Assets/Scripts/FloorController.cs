@@ -16,7 +16,9 @@ public class FloorController : MonoBehaviour {
 
     public void Update()
     {
-        transform.position = new Vector3(_originalPosition.x, _originalPosition.y + oscillationDistance * Mathf.Sin(Time.time * oscillationSpeed), _originalPosition.z);
+        if (PhotonNetwork.isMasterClient) {
+            transform.position = new Vector3(_originalPosition.x, _originalPosition.y + oscillationDistance * Mathf.Sin(Time.time * oscillationSpeed), _originalPosition.z);
+        }
     }
 
     public void OnCollisionEnter(Collision collision)
