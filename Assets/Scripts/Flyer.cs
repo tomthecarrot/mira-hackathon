@@ -25,6 +25,9 @@ public class Flyer : MonoBehaviour {
     /// </summary>
     private Vector3 _originalPosition;
 
+    /// <summary>
+    /// Standard monobehaviour initalizer.
+    /// </summary>
     void Start ()
     {
         _rb = GetComponent<Rigidbody>();
@@ -32,6 +35,9 @@ public class Flyer : MonoBehaviour {
         _originalRotation = transform.rotation;
     }
 	
+    /// <summary>
+    /// Called once per frame.
+    /// </summary>
 	void Update ()
     {
         // empty
@@ -40,7 +46,7 @@ public class Flyer : MonoBehaviour {
     /// <summary>
     /// Applies force to fire the projetile.
     /// </summary>
-    /// <param name="pFireVector">The vector of the direction and intensity.</param>
+    /// <param name="pFireVector">The vector describing the direction and intensity of the fire force.</param>
     public void fireProjectile( Vector3 pFireVector )
     {
         Debug.LogFormat( "Fire!, {0}, {1}, {2}", pFireVector.x, pFireVector.y, pFireVector.z );
