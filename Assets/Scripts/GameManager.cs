@@ -33,12 +33,14 @@ public class GameManager : MonoBehaviour {
 	/// Called once per frame.
 	/// </summary>
 	void Update () {
-        #if UNITY_EDITOR
-            _cannonPitch += Input.GetAxis("Vertical");
-            setCannonPitch(_cannonPitch);
-        #endif
+        if (PhotonNetwork.isMasterClient) {
+            #if UNITY_EDITOR
+                _cannonPitch += Input.GetAxis("Vertical");
+                setCannonPitch(_cannonPitch);
+            #endif
 
-        cannon.transform.rotation = Quaternion.Euler(cannonPitch, 180f, 0);
+            cannon.transform.rotation = Quaternion.Euler(cannonPitch, 180f, 0);
+        }
 
         // FirePower
         if (Input.GetKeyDown("space"))

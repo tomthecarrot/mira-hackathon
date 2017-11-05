@@ -6,6 +6,7 @@ using UnityEngine;
 /// </summary>
 public class ControllerManager : MonoBehaviour {
     
+    // Singleton reference
     public static ControllerManager Instance;
 
     // Variables to limit input calls from controller
@@ -46,7 +47,9 @@ public class ControllerManager : MonoBehaviour {
             x -= 360;
         }
         x = -x;
-        GameManager.Instance.setCannonPitch(x);
+        if (PhotonNetwork.isMasterClient) {
+            GameManager.Instance.setCannonPitch(x);
+        }
     }
 
     /// <summary>
