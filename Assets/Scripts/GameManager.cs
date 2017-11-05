@@ -1,84 +1,123 @@
 ﻿using System;
 using System.Collections;
-
-
 using UnityEngine;
 using UnityEngine.SceneManagement; 
 
-
-namespace Com.MiraHackathon.KlownKannon
-{
-	public class GameManager : Photon.PunBehaviour {
-
-		#region Private Methods
-
-
-		void LoadArena()
-		{
-			if (!PhotonNetwork.isMasterClient) 
-			{
-				Debug.LogError("PhotonNetwork : Trying to Load a level but we are not the master Client");
-			}
-			Debug.Log("PhotonNetwork : Loading Level : " + PhotonNetwork.room.PlayerCount);
-			PhotonNetwork.LoadLevel("Hackathon01");
-		}
+public class GameManager : MonoBehaviour {
+    public static GameManager Instance;
+    public GameObject cannon;
+    public GameObject flyer;
+    public float firePowerReset = 0.5f;
+    public float firePowerMax = 3;
+    public float firePowerMultiplier = 1;
+    public float firePowerIncrementer = 0.001f;
+    public float cannonPitch;
+    public float cannonPitchMin = 0;
+    public float cannonPitchMax = 180;
+    public float muzzleOffset;
+    public float powerCharge = 1;
 
 
-		#endregion
+    private Quaternion _cannonRotationOriginal;
+    private float _cannonPitch = 0;
+   
+    /// <summary>
+    /// Standard monobehaviour initializer.
+    /// </summary>
+    void Start () {
+        GameManager.Instance = this;
+        _cannonRotationOriginal = cannon.transform.rotation;
+    }
+	
+	/// <summary>
+	/// Called once per frame.
+	/// </summary>
+	void Update () {
+        #if UNITY_EDITOR
+            _cannonPitch += Input.GetAxis("Vertical");
+            setCannonPitch(_cannonPitch);
+        #endif
 
+        cannon.transform.rotation = Quaternion.Euler(cannonPitch, 180f, 0);
 
-		#region Photon Messages
+        // FirePower
+        if (Input.GetKeyDown("space"))
+        {
+           resetLaunchpad();
+        }
 
+        if (Input.GetKey("space") || ControllerManager.Instance.triggerHeld)
+        {
+            increaseFirePower();
 
-		public override void OnPhotonPlayerConnected(PhotonPlayer other)
-		{
-			Debug.Log("OnPhotonPlayerConnected() " + other.NickName); // not seen if you're the player connecting
+            // set cannon firepower indicator by power
+            cannon.GetComponent<Cannon>().setFirepowerIndicatorPositionByPower( powerCharge );
+        }
 
+        // Fire
+        if (Input.GetKeyUp("space"))
+        {
+            fire();
+        }
+    }
 
-			if (PhotonNetwork.isMasterClient) 
-			{
-				Debug.Log("OnPhotonPlayerConnected isMasterClient " + PhotonNetwork.isMasterClient); // called before OnPhotonPlayerDisconnected
+    /// <summary>
+    /// Increases the fire power of the cannon
+    /// by the value defined in "firePowerIncrementer".
+    /// </summary>
+    public void increaseFirePower()
+    {
+        powerCharge += firePowerIncrementer;
+        if (powerCharge > firePowerMax)
+        {
+            powerCharge = firePowerMax;
+        }
+    }
 
+    /// <summary>
+    /// Resets the cannon transform, projectile transform, and firing values.
+    /// </summary>
+    public void resetLaunchpad()
+    {
+        // hide flyer
+        flyer.SetActive(false);
+        
+        // firepower reset
+        resetPower();
 
-				LoadArena();
-			}
-		}
+        // cannon reset
+        cannon.GetComponent<Cannon>().resetFirepowerIndicator();
+    }
 
+    /// <summary>
+    /// Resets the power charge value.
+    /// </summary>
+    public void resetPower()
+    {
+        powerCharge = firePowerReset;
+    }
 
-		public override void OnPhotonPlayerDisconnected(PhotonPlayer other)
-		{
-			Debug.Log("OnPhotonPlayerDisconnected() " + other.NickName); // seen when other disconnects
+    /// <summary>
+    /// Rotates the cannon's pitch.
+    /// </summary>
+    /// <param name="pPitch">New pitch rotation value.</param>
+    public void setCannonPitch(float pPitch)
+    {
+        cannonPitch = Mathf.Max(Mathf.Min(cannonPitchMax, pPitch), cannonPitchMin);
+    }
 
+    /// <summary>
+    /// Fires the projectile (Flyer).
+    /// TODO: add particles
+    /// </summary>
+    public void fire()
+    {
+        Quaternion tAdjustedRotation = cannon.transform.localRotation;
+        tAdjustedRotation = tAdjustedRotation * Quaternion.Euler(0, 180, 0);
+        tAdjustedRotation = tAdjustedRotation * Quaternion.Euler(90, 0, 0);
+        flyer.GetComponent<Flyer>().resetFlyer(cannon.transform.position, tAdjustedRotation );
 
-			if (PhotonNetwork.isMasterClient) 
-			{
-				Debug.Log("OnPhotonPlayerDisonnected isMasterClient " + PhotonNetwork.isMasterClient); // called before OnPhotonPlayerDisconnected
-
-
-				LoadArena();
-			}
-		}
-		/// <summary>
-		/// Called when the local player left the room. We need to load the launcher scene.
-		/// </summary>
-		public override void OnLeftRoom()
-		{
-			SceneManager.LoadScene(0);
-		}
-
-
-		#endregion
-
-
-		#region Public Methods
-
-
-		public void LeaveRoom()
-		{
-			PhotonNetwork.LeaveRoom();
-		}
-
-
-		#endregion  
-	}
+        float tFirePower = powerCharge * firePowerMultiplier;
+        flyer.GetComponent<Flyer>().fireProjectile(tFirePower);
+    }
 }
