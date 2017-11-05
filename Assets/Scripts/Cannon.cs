@@ -5,7 +5,7 @@ using UnityEngine;
 public class Cannon : MonoBehaviour {
     public GameObject cannonBody;    
     public GameObject firepowerIndicator;
-    public float firepowerZDistanceMultiplier = 0.1f; // positive number
+    public float firepowerIndicatorZDistanceMultiplier = 0.1f; // positive number
 
     private Vector3 _firepowerIndicatorOriginalLocalPosition;
     private float _firepowerIndicatorZ;
@@ -24,6 +24,6 @@ public class Cannon : MonoBehaviour {
     public void setFirepowerIndicatorPositionByPower( float pFirepower )
     {
         // negative z fires forward
-        firepowerIndicator.transform.localPosition = _firepowerIndicatorOriginalLocalPosition + new Vector3( 0, 0, pFirepower * -firepowerZDistanceMultiplier );
+        firepowerIndicator.transform.localPosition = _firepowerIndicatorOriginalLocalPosition + new Vector3( 0, 0, pFirepower * -firepowerIndicatorZDistanceMultiplier );
     }
 }

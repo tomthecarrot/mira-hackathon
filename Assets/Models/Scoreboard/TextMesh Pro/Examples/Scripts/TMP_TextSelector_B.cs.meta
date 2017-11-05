@@ -1,8 +1,9 @@
 fileFormatVersion: 2
-guid: f499ff45b9a3d0840a0df48d01b2877b
+guid: 8dd0a739139bfbf4993f3c9019f28f7f
 timeCreated: 1435531209
 licenseType: Store
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
   defaultReferences:
   - TextPopup_Prefab_01: {fileID: 22450954, guid: c879e892866c8db4f8930b25672233ac,
