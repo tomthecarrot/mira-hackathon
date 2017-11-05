@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public class GameManager : MonoBehaviour {
     public static GameManager Instance;
     public GameObject cannon;
     public GameObject flyer;
+    public GameObject target;
     public float firePowerReset = 0.5f;
     public float firePowerMax = 3;
     public float firePowerMultiplier = 1;
@@ -16,7 +18,6 @@ public class GameManager : MonoBehaviour {
     public float muzzleOffset;
     public float powerCharge = 1;
 
-
     private Quaternion _cannonRotationOriginal;
     private float _cannonPitch = 0;
    
@@ -26,6 +27,8 @@ public class GameManager : MonoBehaviour {
     void Start () {
         GameManager.Instance = this;
         _cannonRotationOriginal = cannon.transform.rotation;
+
+        target.GetComponent<Target>().onCollisionEnter += targetCollision;
     }
 	
 	/// <summary>
@@ -145,6 +148,15 @@ public class GameManager : MonoBehaviour {
             {
                 sound.Stop();
             }
+        }
+    }
+    
+    public void targetCollision( Collision pCollision )
+    {
+        Debug.LogFormat("target collision: {0}", pCollision.other.name );
+        if( pCollision.other.tag == "Player")
+        {
+            Debug.Log("Success!");
         }
     }
 }
