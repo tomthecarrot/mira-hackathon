@@ -110,9 +110,9 @@ namespace Mira
 
         public void Awake()
         {
-			/* HACKTHON-REMOVED if (PhotonNetwork.room.PlayerCount > 1) {
+			if (!PhotonNetwork.isMasterClient) {
 				isSpectator = true;
-			}*/
+			}
             cameraRig = gameObject;
             scaleMultiplier = setScaleMultiplier;
             Instance.InitializeARController();
@@ -194,7 +194,7 @@ namespace Mira
 
         private void SwitchToARCam()
         {
-			/* HACKTHON-REMOVED if (PhotonNetwork.room.PlayerCount > 1) {
+			/* HACKTHON-REMOVED if (!PhotonNetwork.isMasterClient) {
 				return;
 			}*/
 			// Set the Cam Gyro and WikiCam Device Position to correct orientation
