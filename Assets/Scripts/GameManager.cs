@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
+    public static GameManager Instance;
     public GameObject cannon;
     public GameObject flyer;
     public float firePowerReset = 0.5f;
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour {
     /// Standard monobehaviour initializer.
     /// </summary>
     void Start () {
+        Instance = this;
         _cannonRotationOriginal = cannon.transform.rotation;
     }
 	
