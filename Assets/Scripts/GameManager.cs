@@ -151,6 +151,7 @@ public class GameManager : MonoBehaviour {
         if( pCollision.other.tag == "Player")
         {
             Debug.Log("Success!");
+            playGameObjectSound(target, "Success");
         }
     }
 }
