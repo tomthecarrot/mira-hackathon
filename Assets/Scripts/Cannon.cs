@@ -7,7 +7,6 @@ public class Cannon : MonoBehaviour {
     public GameObject firepowerIndicator;
     public float firepowerZDistanceMultiplier = 0.1f; // positive number
 
-    // private float _firepowerIndicatorDistance;
     private Vector3 _firepowerIndicatorOriginalLocalPosition;
     private float _firepowerIndicatorZ;
 
