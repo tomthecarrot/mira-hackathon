@@ -30,15 +30,9 @@ public class Flyer : MonoBehaviour {
         _rb.AddForce( transform.up * pFirePower, ForceMode.Impulse);
     }
 
-    public void resetFlyer( Vector3 pPosition, Quaternion pRotation )
+    public void resetFlyer(Vector3 pPosition, Quaternion pRotation)
     {
-        // position reset
-        // transform.position = _originalPosition;
-        // transform.rotation = _originalRotation;
-
         transform.position = pPosition;
         transform.localRotation = pRotation;
-
-        // gameObject.SetActive(false);
     }
 }
