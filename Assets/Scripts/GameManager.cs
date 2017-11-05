@@ -45,10 +45,16 @@ public class GameManager : MonoBehaviour {
 
         cannon.transform.rotation = Quaternion.Euler(cannonPitch, 180f, 0);
 
+        if(Input.GetKeyDown("space"))
+        {
+            GameManager.Instance.resetLaunchpad();
+            playGameObjectSound(cannon, "Charging");
+        }
+
         if (Input.GetKey("space") || ControllerManager.Instance.triggerHeld)
         {
             increaseFirePower();
-            playGameObjectSound(cannon, "Charging");
+            
 
             // set cannon firepower indicator by power
             cannon.GetComponent<Cannon>().setFirepowerIndicatorPositionByPower( powerCharge );
@@ -58,9 +64,7 @@ public class GameManager : MonoBehaviour {
         if (Input.GetKeyUp("space"))
         {
             fire();
-            playGameObjectSound(cannon, "Explosion");
-            playGameObjectSound(flyer, "Scream");
-            stopGameObjectSound(cannon, "Charging");
+            playFireSounds();
         }
     }
 
@@ -118,8 +122,7 @@ public class GameManager : MonoBehaviour {
     public void fire()
     {
         Quaternion tAdjustedRotation = cannon.transform.localRotation;
-        tAdjustedRotation = tAdjustedRotation * Quaternion.Euler(0, 180, 0);
-        tAdjustedRotation = tAdjustedRotation * Quaternion.Euler(90, 0, 0);
+        tAdjustedRotation = tAdjustedRotation * Quaternion.Euler(90, 180, 0);
         flyer.GetComponent<Flyer>().resetFlyer(cannon.transform.position, tAdjustedRotation );
 
         float tFirePower = powerCharge * firePowerMultiplier;
@@ -127,6 +130,18 @@ public class GameManager : MonoBehaviour {
 
         // hide fire indicator
         firePowerIndicator.SetActive( false );
+    }
+
+    public void playFuseSound()
+    {
+        playGameObjectSound(cannon, "Charging");
+    }
+
+    public void playFireSounds()
+    {
+        playGameObjectSound(cannon, "Explosion");
+        playGameObjectSound(flyer, "Scream");
+        stopGameObjectSound(cannon, "Charging");
     }
 
     public void playGameObjectSound(GameObject gameObj, string soundName)

@@ -108,6 +108,9 @@ public class ControllerManager : MonoBehaviour {
         // Reset launchpad
         GameManager.Instance.resetLaunchpad();
 
+        // play fuse sound
+        GameManager.Instance.playFuseSound();
+        
         // Charge the Flyer projectile
         // see GameManager.cs:L48
     }
@@ -119,6 +122,9 @@ public class ControllerManager : MonoBehaviour {
         // Fire the Flyer projectile
         GameManager.Instance.fire();
         //flyer.fireProjectile(10);
+
+        // Play sounds for firing
+        GameManager.Instance.playFireSounds();
     }
 
 }
