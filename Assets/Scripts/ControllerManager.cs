@@ -105,6 +105,9 @@ public class ControllerManager : MonoBehaviour {
         // Log to console
         Debug.Log("TRIGGER PRESSED!");
 
+        // Reset launchpad
+        GameManager.Instance.resetLaunchpad();
+
         // Charge the Flyer projectile
         // see GameManager.cs:L48
     }
