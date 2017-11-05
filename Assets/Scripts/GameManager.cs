@@ -1,94 +1,84 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+
+
 using UnityEngine;
+using UnityEngine.SceneManagement; 
 
-public class GameManager : MonoBehaviour {
-    public GameObject cannon;
-    public GameObject flyer;
-    public float firePowerReset = 0.5f;
-    public float firePowerMax = 3;
-    public float firePowerMultiplier = 1;
-    public float firePowerIncrementer = 0.001f;
-    public float cannonPitch;
-    public float cannonPitchMin = 0;
-    public float cannonPitchMax = 180;
-    public float powerCharge = 1;
 
-    private Quaternion _cannonRotationOriginal;
-    private float _cannonPitch = 0;
-   
-    void Start () {
-        _cannonRotationOriginal = cannon.transform.rotation;
-    }
-	
-	// Update is called once per frame
-	void Update () {
-        _cannonPitch += Input.GetAxis("Vertical");
-        setCannonPitch(_cannonPitch);
+namespace Com.MiraHackathon.KlownKannon
+{
+	public class GameManager : Photon.PunBehaviour {
 
-        cannon.transform.rotation = Quaternion.Euler(cannonPitch, 180f, 0);
+		#region Private Methods
 
-        // FirePower
-        if (Input.GetKeyDown("space"))
-        {
-           resetLaunchpad();
-        }
 
-        if (Input.GetKey("space"))
-        {
-            increaseFirePower();
+		void LoadArena()
+		{
+			if (!PhotonNetwork.isMasterClient) 
+			{
+				Debug.LogError("PhotonNetwork : Trying to Load a level but we are not the master Client");
+			}
+			Debug.Log("PhotonNetwork : Loading Level : " + PhotonNetwork.room.PlayerCount);
+			PhotonNetwork.LoadLevel("Hackathon01");
+		}
 
-            // set cannon firepower indicator by power
-            cannon.GetComponent<Cannon>().setFirepowerIndicatorPositionByPower( powerCharge );
-        }
 
-        // Fire
-        if (Input.GetKeyUp("space"))
-        {
-            fire();
-        }
-    }
+		#endregion
 
-    public void increaseFirePower()
-    {
-        powerCharge += firePowerIncrementer;
-        if (powerCharge > firePowerMax)
-        {
-            powerCharge = firePowerMax;
-        }
-    }
 
-    public void resetLaunchpad()
-    {
-        // reset flyer to the cannon location and make transparent
-        flyer.GetComponent<Flyer>().resetFlyer( cannon.transform );
-        
-        // firepower reset
-        resetPower();
+		#region Photon Messages
 
-        // cannon reset
-        cannon.GetComponent<Cannon>().resetFirepowerIndicator();
-    }
 
-    public void resetPower()
-    {
-        powerCharge = firePowerReset;
-    }
+		public override void OnPhotonPlayerConnected(PhotonPlayer other)
+		{
+			Debug.Log("OnPhotonPlayerConnected() " + other.NickName); // not seen if you're the player connecting
 
-    // Cannon
-    public void setCannonPitch(float pPitch)
-    {
-        cannonPitch = Mathf.Max(Mathf.Min(cannonPitchMax, pPitch), cannonPitchMin);
-    }
 
-    // Fire -- fire flyer, particles, etc.
-    public void fire()
-    {
-        Debug.Log("fire");
-        // rotate the flyer -90 so it flies head first
-        // Vector3 tFireVector = new Vector3(_cannonPitch - 90f, 0, 0) * _powerCharge;
-        Vector3 tFireVector = cannon.transform.rotation.ToEuler() * powerCharge * firePowerMultiplier;
+			if (PhotonNetwork.isMasterClient) 
+			{
+				Debug.Log("OnPhotonPlayerConnected isMasterClient " + PhotonNetwork.isMasterClient); // called before OnPhotonPlayerDisconnected
 
-        flyer.GetComponent<Flyer>().fireProjectile(tFireVector);
-    }
+
+				LoadArena();
+			}
+		}
+
+
+		public override void OnPhotonPlayerDisconnected(PhotonPlayer other)
+		{
+			Debug.Log("OnPhotonPlayerDisconnected() " + other.NickName); // seen when other disconnects
+
+
+			if (PhotonNetwork.isMasterClient) 
+			{
+				Debug.Log("OnPhotonPlayerDisonnected isMasterClient " + PhotonNetwork.isMasterClient); // called before OnPhotonPlayerDisconnected
+
+
+				LoadArena();
+			}
+		}
+		/// <summary>
+		/// Called when the local player left the room. We need to load the launcher scene.
+		/// </summary>
+		public override void OnLeftRoom()
+		{
+			SceneManager.LoadScene(0);
+		}
+
+
+		#endregion
+
+
+		#region Public Methods
+
+
+		public void LeaveRoom()
+		{
+			PhotonNetwork.LeaveRoom();
+		}
+
+
+		#endregion  
+	}
 }

@@ -143,6 +143,9 @@ namespace Mira
         {
             mv = new MiraViewer(stereoCamFov);
             mv.Create();
+			if (PhotonNetwork.room.PlayerCount > 1) {
+				isSpectator = true;
+			}
             if (isSpectator)
             {
                 CreateSpecCamRig();
@@ -191,7 +194,10 @@ namespace Mira
 
         private void SwitchToARCam()
         {
-            // Set the Cam Gyro and WikiCam Device Position to correct orientation
+			if (PhotonNetwork.room.PlayerCount > 1) {
+				return;
+			}
+			// Set the Cam Gyro and WikiCam Device Position to correct orientation
             GyroController[] gyros = GameObject.FindObjectsOfType<GyroController>();
 
             foreach (GyroController gyro in gyros)

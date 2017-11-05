@@ -33,7 +33,6 @@ namespace Mira
         private Vector2 smoothFactor = new Vector2(3, 3);
         private Vector2 targetDirection;
         private Vector2 targetCharacterDirection;
-
         private float moveAmount = 1;
         private float rotationAmount = 2f;
 
