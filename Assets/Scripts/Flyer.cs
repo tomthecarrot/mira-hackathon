@@ -42,6 +42,11 @@ public class Flyer : MonoBehaviour {
         _originalTransform = transform;
         _originalPosition = transform.position;
         _originalRotation = transform.rotation;
+
+        // Disable flyer gravity if in specatator mode
+        if (!PhotonNetwork.isMasterClient) {
+            GetComponent<Rigidbody>().useGravity = false;
+        }
     }
 	
     /// <summary>
