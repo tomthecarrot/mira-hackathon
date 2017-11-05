@@ -60,8 +60,7 @@ public class Flyer : MonoBehaviour {
 
         // Enable the projectile
         gameObject.SetActive(true);
-
-
+        
         _rb.AddForce( transform.up * pFirePower, ForceMode.Impulse);
     }
 

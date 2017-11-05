@@ -112,6 +112,22 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &104983103 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1103069295406292, guid: b61795ec9f758134994ea7504adacafb,
+    type: 2}
+  m_PrefabInternal: {fileID: 975791850}
+--- !u!114 &104983107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 104983103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a288abeb11e29e945b009e9f42667ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &276797736
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,15 +202,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4337513478159798, guid: b61795ec9f758134994ea7504adacafb, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5.66
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4337513478159798, guid: b61795ec9f758134994ea7504adacafb, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.41
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4337513478159798, guid: b61795ec9f758134994ea7504adacafb, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 2.226
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4337513478159798, guid: b61795ec9f758134994ea7504adacafb, type: 2}
       propertyPath: m_LocalRotation.x
@@ -219,7 +235,27 @@ Prefab:
     - target: {fileID: 198020199943613078, guid: b61795ec9f758134994ea7504adacafb,
         type: 2}
       propertyPath: randomSeed
-      value: 1698922933
+      value: 1227662430
+      objectReference: {fileID: 0}
+    - target: {fileID: 198020199943613078, guid: b61795ec9f758134994ea7504adacafb,
+        type: 2}
+      propertyPath: InitialModule.maxNumParticles
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 198020199943613078, guid: b61795ec9f758134994ea7504adacafb,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 198020199943613078, guid: b61795ec9f758134994ea7504adacafb,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 198020199943613078, guid: b61795ec9f758134994ea7504adacafb,
+        type: 2}
+      propertyPath: looping
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b61795ec9f758134994ea7504adacafb, type: 2}

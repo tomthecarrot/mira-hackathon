@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
     public GameObject flyer;
     public GameObject target;
     public GameObject firePowerIndicator;
+    public GameObject targetParticles;
     public float firePowerReset = 0.5f;
     public float firePowerMax = 3;
     public float firePowerMultiplier = 1;
@@ -176,6 +177,9 @@ public class GameManager : MonoBehaviour {
         {
             Debug.Log("Success!");
             playGameObjectSound(target, "Success");
+
+            targetParticles.transform.position = pCollision.collider.transform.position;
+            targetParticles.GetComponent<ParticleSystem>().Play();
         }
     }
 }
