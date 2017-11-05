@@ -2,66 +2,84 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// "Flyer" projectile class.
+/// Mira Prism Hackathon 2017
+/// </summary>
 public class Flyer : MonoBehaviour {
 
+    /// <summary>
+    /// The rigidbody attached to the projectile.
+    /// </summary>
     private Rigidbody _rb;
-    private Quaternion _originalRotation;
+
+    /// <summary>
+    /// The original transform of the projectile,
+    /// before it is fired.
+    /// </summary>
+    private Transform _originalTransform;
+
+    /// <summary>
+    /// The original position of the projectile,
+    /// before it is fired.
+    /// </summary>
     private Vector3 _originalPosition;
-    public float powerCharge = 1;
 
-    public float firePowerMultiplier = 1;
-    public float firePowerIncrementer = 0.001f;
-    public float firePowerReset = 1;
-    public float firePowerMax = 3;
+    /// <summary>
+    /// The original rotation of the projectile,
+    /// before it is fired.
+    /// </summary>
+    private Quaternion _originalRotation;
 
-    // Use this for initialization
-    void Start () {
+    /// <summary>
+    /// Standard monobehaviour initalizer.
+    /// </summary>
+    void Start ()
+    {
         _rb = GetComponent<Rigidbody>();
+        _originalTransform = transform;
         _originalPosition = transform.position;
         _originalRotation = transform.rotation;
     }
 	
-	// Update is called once per frame
-	void Update () {
-
-        // FirePower
-        if (Input.GetKey("space"))
-        {
-            resetFlyer();
-
-            powerCharge += firePowerIncrementer;
-            if( powerCharge > firePowerMax )
-            {
-                powerCharge = firePowerMax;
-            }
-        }
-        
-        // Fire
-        if (Input.GetKeyUp("space"))
-        {
-            fireProjectile();
-        }
-
-        // Orientation
-      
-    }
-
-    public void fireProjectile()
+    /// <summary>
+    /// Called once per frame.
+    /// </summary>
+	void Update ()
     {
-        Debug.Log("Fire!");
-        _rb.AddForce(transform.up * firePowerMultiplier * powerCharge, ForceMode.Impulse);
-        resetPower();
+        // empty
     }
 
-    public void resetPower()
+    /// <summary>
+    /// Applies force to fire the projetile.
+    /// </summary>
+    /// <param name="pFireVector">The scalar (float) of the fire force.</param>
+    public void fireProjectile( float pFirePower )
     {
-        powerCharge = firePowerReset;
+        Debug.LogFormat( "Fire! power:, {0}", pFirePower );
+
+        // Enable the projectile
+        gameObject.SetActive(true);
+
+        _rb.AddForce( transform.up * pFirePower, ForceMode.Impulse);
     }
 
-    public void resetFlyer()
+    /// <summary>
+    /// Resets the position and rotation of the projectile
+    /// to the original transform.
+    /// </summary>
+    public void resetFlyer() {
+        resetFlyer(_originalPosition, _originalRotation);
+    }
+
+    /// <summary>
+    /// Resets the position and rotation of the projectile
+    /// to the given transform.
+    /// </summary>
+    /// <param name="pTransform">New transform for the projectile gameobject.</param>
+    public void resetFlyer( Vector3 pPosition, Quaternion pRotation )
     {
-        transform.position = _originalPosition;
-        transform.rotation = _originalRotation;
+        transform.position = pPosition;
+        transform.localRotation = pRotation;
     }
-
 }

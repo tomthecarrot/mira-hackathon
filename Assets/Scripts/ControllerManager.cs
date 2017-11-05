@@ -6,32 +6,56 @@ using UnityEngine;
 /// </summary>
 public class ControllerManager : MonoBehaviour {
     
+    public static ControllerManager Instance;
+
     // Object references
     public Flyer flyer;
 
     // Variables to limit input calls from controller
-    private bool clickHeld = false;
-    private bool triggerHeld = false;
+    public bool clickHeld = false;
+    public bool triggerHeld = false;
+
+    private int UpdateCount = 0;
 
     /// <summary>
     /// Standard monobehaviour initializer.
     /// </summary>
     void Start() {
-        
+        ControllerManager.Instance = this;
     }
 
     /// <summary>
     /// Called every frame.
     /// </summary>
     void Update() {
-        // Process any current inputs from the controller
-        ProcessControllerInputs();
+        /*
+        // Process real-time gyroscope data (every 10 updates)
+        if (UpdateCount % 10 == 0) { ProcessGyro(); }
+        UpdateCount += 1;
+        */
+
+        // Process real-time gyroscope data (every single update)
+        ProcessGyro();
+
+        // Process any current button inputs from the controller
+        ProcessButtons();
+    }
+
+    private void ProcessGyro() {
+        // Get the vector of the current controller orientation
+        Vector3 angles = MiraController.Orientation.eulerAngles;
+        float x = angles.x;
+        if (x >= 180) {
+            x -= 360;
+        }
+        x = -x;
+        GameManager.Instance.setCannonPitch(x);
     }
 
     /// <summary>
     /// Processes any current inputs from the controller.
     /// </summary>
-    private void ProcessControllerInputs() {
+    private void ProcessButtons() {
         if (MiraController.ClickButtonPressed) {
             // Prevent extraneous input calls
             if (clickHeld) { return; }
@@ -58,6 +82,8 @@ public class ControllerManager : MonoBehaviour {
             // Prevent extraneous input calls
             if (!triggerHeld) { return; }
             triggerHeld = false;
+
+            TriggerReleased();
         }
     }
 
@@ -69,7 +95,7 @@ public class ControllerManager : MonoBehaviour {
         Debug.Log("TOUCH PAD PRESSED!");
 
         // Reset Flyer position
-        flyer.resetFlyer();
+        // TODO flyer.resetFlyer();
     }
 
     /// <summary>
@@ -79,8 +105,17 @@ public class ControllerManager : MonoBehaviour {
         // Log to console
         Debug.Log("TRIGGER PRESSED!");
 
-        // Fire a Flyer projectile
-        flyer.fireProjectile();
+        // Charge the Flyer projectile
+        // see GameManager.cs:L48
+    }
+
+    private void TriggerReleased() {
+        // Log to console
+        Debug.Log("TRIGGER RELEASED!");
+
+        // Fire the Flyer projectile
+        GameManager.Instance.fire();
+        //flyer.fireProjectile(10);
     }
 
 }
