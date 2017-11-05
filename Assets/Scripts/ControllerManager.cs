@@ -69,7 +69,7 @@ public class ControllerManager : MonoBehaviour {
         Debug.Log("TOUCH PAD PRESSED!");
 
         // Reset Flyer position
-        flyer.resetFlyerTransform();
+        // flyer.resetFlyer();
     }
 
     /// <summary>
