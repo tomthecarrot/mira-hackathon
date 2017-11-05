@@ -13,8 +13,8 @@ VideoClipImporter:
   frameRange: 0
   startFrame: -1
   endFrame: -1
-  frameCount: 1436
-  frameRate: 59.9585075378418
+  frameCount: 1437
+  frameRate: 60
   colorSpace: 0
   deinterlace: 0
   sourceFileSize: 4546999
@@ -38,7 +38,7 @@ VideoClipImporter:
       bitrateMode: 2
       spatialQuality: 2
   output:
-    format: 1
+    format: 0
     settings:
       enableTranscoding: 0
       codec: 0
@@ -51,7 +51,7 @@ VideoClipImporter:
     encodedWidth: 744
     encodedHeight: 724
     encodedStartFrame: 0
-    encodedEndFrame: 1436
+    encodedEndFrame: 1437
     streamedResource:
       source: 
       offset: 0

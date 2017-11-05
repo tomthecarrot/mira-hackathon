@@ -1,51 +1,85 @@
 fileFormatVersion: 2
-guid: 9ddf8fc9040e92c48bfda9aef65aacf8
+guid: d4894ff4cfb2141bf9cd63bb00c2adf1
 timeCreated: 1450988627
 licenseType: Store
 PluginImporter:
-  serializedVersion: 1
+  externalObjects: {}
+  serializedVersion: 2
   iconMap: {}
   executionOrder: {}
   isPreloaded: 0
+  isOverridable: 0
   platformData:
-    Android:
+  - first:
+      Android: Android
+    second:
       enabled: 0
       settings:
         CPU: AnyCPU
-    Any:
+  - first:
+      Any: 
+    second:
       enabled: 0
       settings: {}
-    Editor:
+  - first:
+      Editor: Editor
+    second:
       enabled: 1
       settings:
         CPU: x86
         DefaultValueInitialized: true
         OS: Windows
-    Linux:
+  - first:
+      Facebook: Win
+    second:
+      enabled: 0
+      settings:
+        CPU: AnyCPU
+  - first:
+      Facebook: Win64
+    second:
+      enabled: 0
+      settings:
+        CPU: AnyCPU
+  - first:
+      Standalone: Linux
+    second:
       enabled: 0
       settings:
         CPU: x86
-    Linux64:
+  - first:
+      Standalone: Linux64
+    second:
       enabled: 0
       settings:
         CPU: x86_64
-    OSXIntel:
+  - first:
+      Standalone: OSXIntel
+    second:
       enabled: 0
       settings:
         CPU: AnyCPU
-    OSXIntel64:
+  - first:
+      Standalone: OSXIntel64
+    second:
       enabled: 0
       settings:
         CPU: AnyCPU
-    Win:
+  - first:
+      Standalone: Win
+    second:
       enabled: 0
       settings:
         CPU: AnyCPU
-    Win64:
+  - first:
+      Standalone: Win64
+    second:
       enabled: 0
       settings:
         CPU: AnyCPU
-    WindowsStoreApps:
+  - first:
+      Windows Store Apps: WindowsStoreApps
+    second:
       enabled: 0
       settings:
         CPU: AnyCPU

@@ -1,19 +1,23 @@
 fileFormatVersion: 2
-guid: 687dcec43b2f746efa5a1ceaf3ba0276
+guid: 73677c74244a14e1491a9357f812befb
 timeCreated: 1484171297
 licenseType: Store
 TrueTypeFontImporter:
-  serializedVersion: 2
+  externalObjects: {}
+  serializedVersion: 4
   fontSize: 16
   forceTextureCase: -2
-  characterSpacing: 1
-  characterPadding: 0
+  characterSpacing: 0
+  characterPadding: 1
   includeFontData: 1
-  use2xBehaviour: 0
-  fontNames: []
-  fallbackFontReferences: []
+  fontName: Bangers
+  fontNames:
+  - Bangers
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 5e799580e750c476e94399d1b2083fa5, type: 3}
   customCharacters: 
   fontRenderingMode: 0
+  ascentCalculationMode: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 
