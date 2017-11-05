@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour {
         if (Input.GetKey("space") || ControllerManager.Instance.triggerHeld)
         {
             increaseFirePower();
+            playGameObjectSound(cannon, "Charging");
 
             // set cannon firepower indicator by power
             cannon.GetComponent<Cannon>().setFirepowerIndicatorPositionByPower( powerCharge );
@@ -57,7 +58,9 @@ public class GameManager : MonoBehaviour {
         if (Input.GetKeyUp("space"))
         {
             fire();
-            playExplosion();
+            playGameObjectSound(cannon, "Explosion");
+            playGameObjectSound(flyer, "Scream");
+            stopGameObjectSound(cannon, "Charging");
         }
     }
 
@@ -121,9 +124,27 @@ public class GameManager : MonoBehaviour {
         flyer.GetComponent<Flyer>().fireProjectile(tFirePower);
     }
 
-    public void playExplosion()
+    public void playGameObjectSound(GameObject gameObj, string soundName)
     {
-        AudioSource explosionSound = cannon.GetComponent<AudioSource>();
-        explosionSound.Play();
+        AudioSource[] sounds = gameObj.transform.GetComponentsInChildren<AudioSource>();
+        foreach(AudioSource sound in sounds)
+        {
+            if (sound.name == soundName)
+            {
+                sound.Play();
+            }
+        }
+    }
+
+    public void stopGameObjectSound(GameObject gameObj, string soundName)
+    {
+        AudioSource[] sounds = gameObj.transform.GetComponentsInChildren<AudioSource>();
+        foreach(AudioSource sound in sounds)
+        {
+            if (sound.name == soundName)
+            {
+                sound.Stop();
+            }
+        }
     }
 }
