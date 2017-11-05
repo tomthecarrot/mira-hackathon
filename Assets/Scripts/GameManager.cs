@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour {
     /// Standard monobehaviour initializer.
     /// </summary>
     void Start () {
-        Instance = this;
+        GameManager.Instance = this;
         _cannonRotationOriginal = cannon.transform.rotation;
     }
 	
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour {
            resetLaunchpad();
         }
 
-        if (Input.GetKey("space"))
+        if (Input.GetKey("space") || ControllerManager.Instance.triggerHeld)
         {
             increaseFirePower();
 
