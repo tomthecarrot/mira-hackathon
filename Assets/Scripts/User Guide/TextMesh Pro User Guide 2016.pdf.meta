@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scripts/User Guide/TextMesh Pro User Guide 2016.pdf.meta
 guid: 3b2e30ca4d7ccc347ba1eb0b96c9f76c
+=======
+guid: bebc1a387bd1c4c25bef9bf07b1a7656
+>>>>>>> 3a7a0426e34c1416b76ea8acfc1de182de84d521:Assets/Scripts/TextMesh Pro/User Guide/TextMesh Pro User Guide 2016.pdf.meta
 timeCreated: 1487147918
 licenseType: Store
 DefaultImporter:

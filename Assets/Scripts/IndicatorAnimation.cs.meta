@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scripts/IndicatorAnimation.cs.meta
 guid: 69bcda5e23e88284bb8f00336de21598
 timeCreated: 1509855078
 licenseType: Free
+=======
+guid: 9b436eeee318a44058f765d5dc3b7097
+timeCreated: 1487197841
+licenseType: Store
+>>>>>>> 3a7a0426e34c1416b76ea8acfc1de182de84d521:Assets/Scripts/TextMesh Pro/Examples/Scripts/ChatController.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
