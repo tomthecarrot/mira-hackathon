@@ -566,8 +566,9 @@ MonoBehaviour:
   cannon: {fileID: 701004917}
   flyer: {fileID: 1365009148}
   target: {fileID: 1170506801}
+  firePowerIndicator: {fileID: 1788462606}
   firePowerReset: 1
-  firePowerMax: 3
+  firePowerMax: 4
   firePowerMultiplier: 1.5
   firePowerIncrementer: 0.01
   cannonPitch: 0
@@ -597,8 +598,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 701004917}
-  m_LocalRotation: {x: 0, y: 0.9158379, z: -0.40154824, w: 0}
-  m_LocalPosition: {x: -0.163, y: 0.272, z: -0.244}
+  m_LocalRotation: {x: 0, y: 0.7873656, z: -0.6164864, w: 0}
+  m_LocalPosition: {x: -0.163, y: 0.18, z: -0.244}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1876957418}
@@ -608,7 +609,7 @@ Transform:
   - {fileID: 213102523}
   m_Father: {fileID: 1460989690}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 47.35, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 76.12, y: 180, z: 0}
 --- !u!114 &701004919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -864,8 +865,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 3.49, z: 1.81}
-  m_Center: {x: 0, y: 0.65, z: -0.33}
+  m_Size: {x: 1, y: 3.49, z: 1.24}
+  m_Center: {x: 0, y: 0.65, z: -0.72}
 --- !u!114 &1365009153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1168,8 +1169,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1624949386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.86}
-  m_LocalScale: {x: 2, y: 0.025, z: 3.17}
+  m_LocalPosition: {x: -0.12, y: 0, z: 0.4}
+  m_LocalScale: {x: 0.83, y: 0.025, z: 1.6}
   m_Children: []
   m_Father: {fileID: 1460989690}
   m_RootOrder: 1
@@ -1346,7 +1347,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6ef5be3a5cdcc47f2a2699c1a32e023c, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.05
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ef5be3a5cdcc47f2a2699c1a32e023c, type: 3}
@@ -1388,7 +1389,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fba68cb5416364f959ee8f6eff25b88e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.258
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fba68cb5416364f959ee8f6eff25b88e, type: 3}
       propertyPath: m_LocalRotation.x
