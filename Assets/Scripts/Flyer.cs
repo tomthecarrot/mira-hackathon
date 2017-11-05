@@ -20,23 +20,24 @@ public class Flyer : MonoBehaviour {
         // empty
     }
 
-    public void fireProjectile( Vector3 pFireVector )
+    // rotate it first
+    public void fireProjectile( float pFirePower )
     {
-        Debug.LogFormat( "Fire!, {0}, {1}, {2}", pFireVector.x, pFireVector.y, pFireVector.z );
+        Debug.LogFormat( "Fire! power:, {0}", pFirePower );
 
         gameObject.SetActive(true);
-        
-        _rb.AddForce( pFireVector, ForceMode.Impulse );
+
+        _rb.AddForce( transform.up * pFirePower, ForceMode.Impulse);
     }
 
-    public void resetFlyer( Transform pTransform )
+    public void resetFlyer( Vector3 pPosition, Quaternion pRotation )
     {
         // position reset
         // transform.position = _originalPosition;
         // transform.rotation = _originalRotation;
 
-        transform.position = pTransform.position;
-        transform.rotation = pTransform.rotation;
+        transform.position = pPosition;
+        transform.localRotation = pRotation;
 
         // gameObject.SetActive(false);
     }
