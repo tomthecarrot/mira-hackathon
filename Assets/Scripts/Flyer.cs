@@ -14,10 +14,10 @@ public class Flyer : MonoBehaviour {
     private Rigidbody _rb;
 
     /// <summary>
-    /// The original rotation of the projectile,
+    /// The original transform of the projectile,
     /// before it is fired.
     /// </summary>
-    private Quaternion _originalRotation;
+    private Transform _originalTransform;
 
     /// <summary>
     /// The original position of the projectile,
@@ -26,11 +26,18 @@ public class Flyer : MonoBehaviour {
     private Vector3 _originalPosition;
 
     /// <summary>
+    /// The original rotation of the projectile,
+    /// before it is fired.
+    /// </summary>
+    private Quaternion _originalRotation;
+
+    /// <summary>
     /// Standard monobehaviour initalizer.
     /// </summary>
     void Start ()
     {
         _rb = GetComponent<Rigidbody>();
+        _originalTransform = transform;
         _originalPosition = transform.position;
         _originalRotation = transform.rotation;
     }
@@ -56,6 +63,14 @@ public class Flyer : MonoBehaviour {
         
         // Apply the force
         _rb.AddForce( pFireVector, ForceMode.Impulse );
+    }
+
+    /// <summary>
+    /// Resets the position and rotation of the projectile
+    /// to the original transform.
+    /// </summary>
+    public void resetFlyer() {
+        resetFlyer(_originalTransform);
     }
 
     /// <summary>
