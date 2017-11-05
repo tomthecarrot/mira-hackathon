@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465934, g: 0.49642956, b: 0.5748249, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -568,8 +568,8 @@ MonoBehaviour:
   target: {fileID: 1170506801}
   firePowerIndicator: {fileID: 1788462606}
   targetParticles: {fileID: 1088861461}
-  firePowerReset: 2
-  firePowerMax: 6
+  firePowerReset: 0.5
+  firePowerMax: 2
   firePowerMultiplier: 0.6
   firePowerIncrementer: 0.01
   cannonPitch: 0
@@ -577,6 +577,7 @@ MonoBehaviour:
   cannonPitchMax: 180
   muzzleOffset: 0.3
   powerCharge: 2.9699984
+  gravityOverride: {x: 0, y: -2, z: 0}
 --- !u!1001 &622798003
 Prefab:
   m_ObjectHideFlags: 0
@@ -1489,7 +1490,7 @@ Transform:
   m_GameObject: {fileID: 1460989689}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 513831562}
   - {fileID: 1624949390}

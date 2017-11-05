@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour {
     public float cannonPitchMax = 180;
     public float muzzleOffset;
     public float powerCharge = 1;
+    public Vector3 gravityOverride;
 
     private Quaternion _cannonRotationOriginal;
     private float _cannonPitch = 0;
@@ -33,6 +34,8 @@ public class GameManager : MonoBehaviour {
         target.GetComponent<Target>().onCollisionEnter += targetCollision;
 
         firePowerIndicator.SetActive(false);
+
+        Physics.gravity = gravityOverride;
     }
 
     /// <summary>
