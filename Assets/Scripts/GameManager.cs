@@ -45,15 +45,10 @@ public class GameManager : MonoBehaviour {
 
         cannon.transform.rotation = Quaternion.Euler(cannonPitch, 180f, 0);
 
-        // FirePower
-        if (Input.GetKeyDown("space"))
-        {
-           resetLaunchpad();
-        }
-
         if (Input.GetKey("space") || ControllerManager.Instance.triggerHeld)
         {
             increaseFirePower();
+            playGameObjectSound(cannon, "Charging");
 
             // set cannon firepower indicator by power
             cannon.GetComponent<Cannon>().setFirepowerIndicatorPositionByPower( powerCharge );
@@ -63,6 +58,9 @@ public class GameManager : MonoBehaviour {
         if (Input.GetKeyUp("space"))
         {
             fire();
+            playGameObjectSound(cannon, "Explosion");
+            playGameObjectSound(flyer, "Scream");
+            stopGameObjectSound(cannon, "Charging");
         }
     }
 
@@ -131,6 +129,30 @@ public class GameManager : MonoBehaviour {
         firePowerIndicator.SetActive( false );
     }
 
+    public void playGameObjectSound(GameObject gameObj, string soundName)
+    {
+        AudioSource[] sounds = gameObj.transform.GetComponentsInChildren<AudioSource>();
+        foreach(AudioSource sound in sounds)
+        {
+            if (sound.name == soundName)
+            {
+                sound.Play();
+            }
+        }
+    }
+
+    public void stopGameObjectSound(GameObject gameObj, string soundName)
+    {
+        AudioSource[] sounds = gameObj.transform.GetComponentsInChildren<AudioSource>();
+        foreach(AudioSource sound in sounds)
+        {
+            if (sound.name == soundName)
+            {
+                sound.Stop();
+            }
+        }
+    }
+    
     public void targetCollision( Collision pCollision )
     {
         Debug.LogFormat("target collision: {0}", pCollision.other.name );
