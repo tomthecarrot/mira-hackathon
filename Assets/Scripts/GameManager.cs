@@ -32,8 +32,10 @@ public class GameManager : MonoBehaviour {
 	/// Called once per frame.
 	/// </summary>
 	void Update () {
-        _cannonPitch += Input.GetAxis("Vertical");
-        setCannonPitch(_cannonPitch);
+        #if UNITY_EDITOR
+            _cannonPitch += Input.GetAxis("Vertical");
+            setCannonPitch(_cannonPitch);
+        #endif
 
         cannon.transform.rotation = Quaternion.Euler(cannonPitch, 180f, 0);
 

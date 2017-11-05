@@ -46,6 +46,7 @@ public class ControllerManager : MonoBehaviour {
         if (x >= 180) {
             x -= 360;
         }
+        x = -x;
         GameManager.Instance.setCannonPitch(x);
     }
 
