@@ -149,6 +149,8 @@ namespace Ximmerse.UI {
 					}else {
 						caster.SetLaserLineDepth(rr.distance);
 					}
+					// Make laser invisible (HACKATHON)
+					caster.SetLaserLineDepth(0);
 				}
 				//pointerData.delta=headPose-lastHeadPose;
 				//lastHeadPose=headPose;
