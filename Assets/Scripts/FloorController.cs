@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class FloorController : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public float oscillationDistance;
+    public float oscillationSpeed;
 
-	public void OnCollisionEnter(Collision collision)
+    private Vector3 _originalPosition;
+
+    public void Start()
+    {
+        _originalPosition = transform.position;
+    }
+
+    public void Update()
+    {
+        transform.position = new Vector3(_originalPosition.x, _originalPosition.y + oscillationDistance * Mathf.Sin(Time.time * oscillationSpeed), _originalPosition.z);
+    }
+
+    public void OnCollisionEnter(Collision collision)
 	{
 			if (collision.collider.tag == "Player" && collision.relativeVelocity != Vector3.zero)
 			{
