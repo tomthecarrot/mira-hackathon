@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement; 
 
@@ -7,6 +8,9 @@ public class GameManager : MonoBehaviour {
     public static GameManager Instance;
     public GameObject cannon;
     public GameObject flyer;
+    public GameObject target;
+    public GameObject firePowerIndicator;
+    public GameObject targetParticles;
     public float firePowerReset = 0.5f;
     public float firePowerMax = 3;
     public float firePowerMultiplier = 1;
@@ -17,7 +21,6 @@ public class GameManager : MonoBehaviour {
     public float muzzleOffset;
     public float powerCharge = 1;
 
-
     private Quaternion _cannonRotationOriginal;
     private float _cannonPitch = 0;
    
@@ -27,6 +30,10 @@ public class GameManager : MonoBehaviour {
     void Start () {
         GameManager.Instance = this;
         _cannonRotationOriginal = cannon.transform.rotation;
+
+        target.GetComponent<Target>().onCollisionEnter += targetCollision;
+
+        firePowerIndicator.SetActive(false);
     }
 	
 	/// <summary>
@@ -42,15 +49,16 @@ public class GameManager : MonoBehaviour {
             cannon.transform.rotation = Quaternion.Euler(cannonPitch, 180f, 0);
         }
 
-        // FirePower
-        if (Input.GetKeyDown("space"))
+        if(Input.GetKeyDown("space"))
         {
-           resetLaunchpad();
+            GameManager.Instance.resetLaunchpad();
+            playGameObjectSound(cannon, "Charging");
         }
 
         if (Input.GetKey("space") || ControllerManager.Instance.triggerHeld)
         {
             increaseFirePower();
+            
 
             // set cannon firepower indicator by power
             cannon.GetComponent<Cannon>().setFirepowerIndicatorPositionByPower( powerCharge );
@@ -60,6 +68,7 @@ public class GameManager : MonoBehaviour {
         if (Input.GetKeyUp("space"))
         {
             fire();
+            playFireSounds();
         }
     }
 
@@ -87,6 +96,9 @@ public class GameManager : MonoBehaviour {
         // firepower reset
         resetPower();
 
+        // show fire indicator
+        firePowerIndicator.SetActive(true);
+
         // cannon reset
         cannon.GetComponent<Cannon>().resetFirepowerIndicator();
     }
@@ -110,16 +122,67 @@ public class GameManager : MonoBehaviour {
 
     /// <summary>
     /// Fires the projectile (Flyer).
-    /// TODO: add particles
     /// </summary>
     public void fire()
     {
         Quaternion tAdjustedRotation = cannon.transform.localRotation;
-        tAdjustedRotation = tAdjustedRotation * Quaternion.Euler(0, 180, 0);
-        tAdjustedRotation = tAdjustedRotation * Quaternion.Euler(90, 0, 0);
+        tAdjustedRotation = tAdjustedRotation * Quaternion.Euler(90, 180, 0);
         flyer.GetComponent<Flyer>().resetFlyer(cannon.transform.position, tAdjustedRotation );
 
         float tFirePower = powerCharge * firePowerMultiplier;
         flyer.GetComponent<Flyer>().fireProjectile(tFirePower);
+
+        // hide fire indicator
+        firePowerIndicator.SetActive( false );
+    }
+
+    public void playFuseSound()
+    {
+        playGameObjectSound(cannon, "Charging");
+    }
+
+    public void playFireSounds()
+    {
+        playGameObjectSound(cannon, "Explosion");
+        playGameObjectSound(flyer, "Scream");
+        stopGameObjectSound(cannon, "Charging");
+    }
+
+    public void playGameObjectSound(GameObject gameObj, string soundName)
+    {
+        AudioSource[] sounds = gameObj.transform.GetComponentsInChildren<AudioSource>();
+        foreach(AudioSource sound in sounds)
+        {
+            if (sound.name == soundName)
+            {
+                sound.Play();
+            }
+        }
+    }
+
+    public void stopGameObjectSound(GameObject gameObj, string soundName)
+    {
+        AudioSource[] sounds = gameObj.transform.GetComponentsInChildren<AudioSource>();
+        foreach(AudioSource sound in sounds)
+        {
+            if (sound.name == soundName)
+            {
+                sound.Stop();
+            }
+        }
+    }
+    
+    public void targetCollision( Collision pCollision )
+    {
+        Debug.LogFormat("target collision: {0}", pCollision.other.name );
+
+        if( pCollision.other.tag == "Player")
+        {
+            Debug.Log("Success!");
+            playGameObjectSound(target, "Success");
+
+            targetParticles.transform.position = pCollision.collider.transform.position;
+            targetParticles.GetComponent<ParticleSystem>().Play();
+        }
     }
 }

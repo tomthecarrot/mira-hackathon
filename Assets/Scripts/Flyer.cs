@@ -31,6 +31,8 @@ public class Flyer : MonoBehaviour {
     /// </summary>
     private Quaternion _originalRotation;
 
+    public float torque;
+
     /// <summary>
     /// Standard monobehaviour initalizer.
     /// </summary>
@@ -60,8 +62,9 @@ public class Flyer : MonoBehaviour {
 
         // Enable the projectile
         gameObject.SetActive(true);
-
+        
         _rb.AddForce( transform.up * pFirePower, ForceMode.Impulse);
+        _rb.AddRelativeTorque( new Vector3( Random.Range( -torque, torque ), Random.Range(-torque, torque ), Random.Range(-torque, torque ) ), ForceMode.Impulse );
     }
 
     /// <summary>
@@ -81,5 +84,8 @@ public class Flyer : MonoBehaviour {
     {
         transform.position = pPosition;
         transform.localRotation = pRotation;
+
+        _rb.velocity = Vector3.zero;
+        _rb.angularVelocity = Vector3.zero;
     }
 }
