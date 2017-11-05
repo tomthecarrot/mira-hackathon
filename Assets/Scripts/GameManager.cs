@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
+    public static GameManager Instance;
     public GameObject cannon;
     public GameObject flyer;
     public float firePowerReset = 0.5f;
@@ -19,11 +20,17 @@ public class GameManager : MonoBehaviour {
     private Quaternion _cannonRotationOriginal;
     private float _cannonPitch = 0;
    
+    /// <summary>
+    /// Standard monobehaviour initializer.
+    /// </summary>
     void Start () {
+        Instance = this;
         _cannonRotationOriginal = cannon.transform.rotation;
     }
 	
-	// Update is called once per frame
+	/// <summary>
+	/// Called once per frame.
+	/// </summary>
 	void Update () {
         _cannonPitch += Input.GetAxis("Vertical");
         setCannonPitch(_cannonPitch);
@@ -51,6 +58,10 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Increases the fire power of the cannon
+    /// by the value defined in "firePowerIncrementer".
+    /// </summary>
     public void increaseFirePower()
     {
         powerCharge += firePowerIncrementer;
@@ -60,6 +71,9 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Resets the cannon transform, projectile transform, and firing values.
+    /// </summary>
     public void resetLaunchpad()
     {
         // hide flyer
@@ -72,18 +86,27 @@ public class GameManager : MonoBehaviour {
         cannon.GetComponent<Cannon>().resetFirepowerIndicator();
     }
 
+    /// <summary>
+    /// Resets the power charge value.
+    /// </summary>
     public void resetPower()
     {
         powerCharge = firePowerReset;
     }
 
-    // Cannon
+    /// <summary>
+    /// Rotates the cannon's pitch.
+    /// </summary>
+    /// <param name="pPitch">New pitch rotation value.</param>
     public void setCannonPitch(float pPitch)
     {
         cannonPitch = Mathf.Max(Mathf.Min(cannonPitchMax, pPitch), cannonPitchMin);
     }
 
-    // Fire -- fire flyer, particles, etc.
+    /// <summary>
+    /// Fires the projectile (Flyer).
+    /// TODO: add particles
+    /// </summary>
     public void fire()
     {
         Quaternion tAdjustedRotation = cannon.transform.localRotation;

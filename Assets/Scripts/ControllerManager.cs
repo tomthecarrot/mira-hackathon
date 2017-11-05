@@ -13,6 +13,8 @@ public class ControllerManager : MonoBehaviour {
     private bool clickHeld = false;
     private bool triggerHeld = false;
 
+    private int UpdateCount = 0;
+
     /// <summary>
     /// Standard monobehaviour initializer.
     /// </summary>
@@ -24,14 +26,33 @@ public class ControllerManager : MonoBehaviour {
     /// Called every frame.
     /// </summary>
     void Update() {
-        // Process any current inputs from the controller
-        ProcessControllerInputs();
+        /*
+        // Process real-time gyroscope data (every 10 updates)
+        if (UpdateCount % 10 == 0) { ProcessGyro(); }
+        UpdateCount += 1;
+        */
+
+        // Process real-time gyroscope data (every single update)
+        ProcessGyro();
+
+        // Process any current button inputs from the controller
+        ProcessButtons();
+    }
+
+    private void ProcessGyro() {
+        // Get the vector of the current controller orientation
+        Vector3 angles = MiraController.Orientation.eulerAngles;
+        float x = angles.x;
+        if (x >= 180) {
+            x -= 360;
+        }
+        GameManager.Instance.setCannonPitch(x);
     }
 
     /// <summary>
     /// Processes any current inputs from the controller.
     /// </summary>
-    private void ProcessControllerInputs() {
+    private void ProcessButtons() {
         if (MiraController.ClickButtonPressed) {
             // Prevent extraneous input calls
             if (clickHeld) { return; }
@@ -69,7 +90,7 @@ public class ControllerManager : MonoBehaviour {
         Debug.Log("TOUCH PAD PRESSED!");
 
         // Reset Flyer position
-        // flyer.resetFlyer();
+        flyer.resetFlyer();
     }
 
     /// <summary>
@@ -80,7 +101,7 @@ public class ControllerManager : MonoBehaviour {
         Debug.Log("TRIGGER PRESSED!");
 
         // Fire a Flyer projectile
-        // flyer.fireProjectile();
+        flyer.fireProjectile(10);
     }
 
 }
